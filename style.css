@@ -124,3 +124,7 @@ body.game-focus #hint{display:none}
 body.game-focus .session-control{bottom:110px}
 body.game-focus .resume-song{bottom:155px}
 @media(max-width:600px){.view-actions{gap:5px;flex-direction:column}.view-actions .quiet{padding:8px 10px}body.game-focus #objective{padding-right:210px;font-size:9px}body.game-focus #exit-fullscreen{font-size:10px;min-height:34px;padding:6px 8px}body.game-focus .sound{right:121px}}
+
+.share-tools{font-size:11px;color:var(--gold)}#share-status:empty{display:none}#share-status{margin:0 0 14px}#share-fallback{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}#share-link{flex:1;min-width:180px;max-width:450px;background:#142024;color:var(--paper);border:1px solid #d8b78365;padding:10px;font:inherit}body.game-focus .share-tools{display:none}@media(max-width:600px){.view-actions .quiet{font-size:10px}.view-actions{max-width:135px}.heading{gap:10px}}
+
+footer{flex-wrap:wrap}.analytics-note a{color:inherit;text-decoration:underline}
