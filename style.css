@@ -106,3 +106,21 @@
 #stage-hud #stage-stop{border:2px solid #ffe2a1;background:#dba960;color:#17383c;font-weight:bold;min-height:40px;font-size:12px;}
 
 #nav-orson[hidden]{display:none!important;}
+
+/* A fitted play area, with a native-fullscreen enhancement where available. */
+.view-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.creator-credit{white-space:nowrap}.creator-credit a{color:var(--gold);text-decoration:none}.creator-credit a:hover{text-decoration:underline}
+#exit-fullscreen{position:absolute;z-index:30;top:5px;right:6px;background:#173533;color:#ffe1a0;min-height:34px;padding:6px 10px;font-size:11px}
+body.game-focus{overflow:hidden;overscroll-behavior:none;background:#101619}
+body.game-focus>header,body.game-focus>footer,body.game-focus .heading,body.game-focus .room-nav,body.game-focus .below,body.game-focus .audio-picker{display:none}
+body.game-focus main{padding:0;max-width:none}
+body.game-focus #game{position:fixed;z-index:1000;top:50%;left:50%;transform:translate(-50%,-50%);margin:0;border:0;width:min(calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 16px),calc((100vh - 60px) * 1100 / 620));width:min(calc(100dvw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 16px),calc((100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 60px) * 1100 / 620))}
+body.game-focus #objective{height:44px;min-height:44px;padding:8px 225px 8px 12px;font-size:10px;overflow:auto}
+body.game-focus #hotspots{top:44px}
+body.game-focus .sound{right:132px;top:5px;min-height:34px}
+body.game-focus .overlay{position:absolute}
+body.game-focus .touch-controls{position:absolute;inset:auto 8px 8px;padding:0;min-height:0;background:none}
+body.game-focus #hint{display:none}
+body.game-focus .session-control{bottom:110px}
+body.game-focus .resume-song{bottom:155px}
+@media(max-width:600px){.view-actions{gap:5px;flex-direction:column}.view-actions .quiet{padding:8px 10px}body.game-focus #objective{padding-right:210px;font-size:9px}body.game-focus #exit-fullscreen{font-size:10px;min-height:34px;padding:6px 8px}body.game-focus .sound{right:121px}}
