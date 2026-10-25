@@ -149,3 +149,24 @@ footer{flex-wrap:wrap}.analytics-note a{color:inherit;text-decoration:underline}
 @media(prefers-reduced-motion:reduce){.hotspot::after,.hotspot::before{animation:none;opacity:.7}}
 
 @media(pointer:coarse),(max-width:900px){#hint{display:none}}
+
+/* Do not let iOS inflate the HUD when the device rotates. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#game button{-webkit-appearance:none;appearance:none}
+@media(pointer:coarse),(max-width:900px){
+ .touch-controls,body.game-focus .touch-controls{height:44px;min-height:44px;padding:6px 8px;gap:8px}
+ .touch-controls .arrows{gap:12px}
+ .touch-controls button{position:relative;min-width:32px;min-height:32px;width:32px;height:32px;border-radius:8px;font-size:14px;line-height:1}
+ .touch-controls button::after{content:'';position:absolute;inset:-6px;pointer-events:auto}
+ .touch-controls #interact{font-size:9px;padding:0 9px;min-width:54px}
+ #room-exit-cue{display:flex;align-items:center;gap:5px;min-height:26px;max-width:30%;bottom:6px;right:6px;padding:4px 6px;border-radius:7px;box-shadow:0 0 6px #ffd98a35;line-height:1.1}
+ #exit-cue-help{display:none}
+ #exit-cue-label{font-size:9px;line-height:1.1}
+ #room-exit-cue b{font-size:17px;line-height:1;grid-column:auto;grid-row:auto}
+ #room-exit-cue::after{content:'';position:absolute;inset:-7px;pointer-events:auto}
+ body.game-focus #game{width:min(calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 16px),calc((100vh - 88px) * 1100 / 620));width:min(calc(100dvw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 16px),calc((100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 88px) * 1100 / 620))}
+ body.game-focus #objective{height:28px;min-height:28px;font-size:8px;line-height:12px;padding:3px 170px 3px 8px;overflow:hidden}
+ body.game-focus #hotspots{top:28px}
+ body.game-focus #exit-fullscreen{top:2px;right:4px;min-height:24px;height:24px;font-size:9px;line-height:1;padding:4px 6px}
+ body.game-focus .sound{top:2px;right:98px;min-height:24px;height:24px;font-size:8px;line-height:1;padding:4px 6px}
+}
