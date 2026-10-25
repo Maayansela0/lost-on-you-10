@@ -128,3 +128,22 @@ body.game-focus .resume-song{bottom:155px}
 .share-tools{font-size:11px;color:var(--gold)}#share-status:empty{display:none}#share-status{margin:0 0 14px}#share-fallback{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}#share-link{flex:1;min-width:180px;max-width:450px;background:#142024;color:var(--paper);border:1px solid #d8b78365;padding:10px;font:inherit}body.game-focus .share-tools{display:none}@media(max-width:600px){.view-actions .quiet{font-size:10px}.view-actions{max-width:135px}.heading{gap:10px}}
 
 footer{flex-wrap:wrap}.analytics-note a{color:inherit;text-decoration:underline}
+
+/* Small beacons point to the objects without covering their artwork. */
+.hotspot::after{left:50%;top:50%;right:auto;width:7px;height:7px;transform:translate(-50%,-50%);background:#fff0bb;box-shadow:0 0 8px 2px #ffcf76;animation:object-glimmer 2.6s ease-in-out infinite}
+.hotspot::before{content:'';position:absolute;left:50%;top:50%;width:17px;height:17px;border:1px solid #ffe6aa;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;animation:object-ring 2.6s ease-in-out infinite}
+.hotspot:nth-child(3n)::after,.hotspot:nth-child(3n)::before{animation-delay:-.9s}.hotspot:nth-child(3n+1)::after,.hotspot:nth-child(3n+1)::before{animation-delay:-1.8s}
+@keyframes object-glimmer{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes object-ring{0%,100%{opacity:.2;transform:translate(-50%,-50%) scale(.8)}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.25)}}
+#room-exit-cue{top:auto;bottom:10px;right:8px;max-width:calc(100% - 16px);min-height:44px}
+#room-exit-cue[data-bridge="true"]{top:auto;bottom:18%}
+@media(pointer:coarse),(max-width:900px){
+ .touch-controls,body.game-focus .touch-controls{display:flex;position:relative;inset:auto;align-items:center;justify-content:space-between;gap:8px;min-height:56px;height:56px;padding:6px 8px;background:#14272b;pointer-events:none}
+ .touch-controls .arrows{display:flex;gap:4px;align-items:center}
+ .touch-controls button{min-width:44px;min-height:44px;width:44px;height:44px;padding:0;border-radius:10px;background:#20393c;border:1px solid #d8b78365;color:var(--paper);font-size:17px;touch-action:none;pointer-events:auto;user-select:none}
+ .touch-controls #interact{width:auto;padding:0 12px;font-size:10px}
+ #hint{bottom:65px;font-size:9px;max-width:70%;padding:4px 8px}
+ #room-exit-cue{top:auto;bottom:8px;padding:5px 8px;max-width:42%}
+ body.game-focus #game{width:min(calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 16px),calc((100vh - 116px) * 1100 / 620));width:min(calc(100dvw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 16px),calc((100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 116px) * 1100 / 620))}
+}
+@media(prefers-reduced-motion:reduce){.hotspot::after,.hotspot::before{animation:none;opacity:.7}}

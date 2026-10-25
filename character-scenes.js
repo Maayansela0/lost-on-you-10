@@ -7,7 +7,8 @@ const partyCast=[
  {name:'Titttty',row:4,h:248,phase:6.2,roamOffset:32,vintage:true}
 ];
 function guestPose(t){const p=((t%18)+18)%18;return p<10?(Math.floor(p*1.6)%2):p<13?2:3}
-const partyRoute=[[240,555],[510,500],[850,535],[730,585],[360,585]];
+// Leave the jukebox at x=824 visible: guests roam on the left dance floor.
+const partyRoute=[[170,555],[420,505],[615,535],[560,585],[290,585]];
 function partyGuestPosition(t,g){
  const clock=((t+(g.roamOffset??g.row*9))%40+40)%40,leg=Math.floor(clock/8),u=(clock%8)/8,p=Math.min(1,u/.75),ease=p*p*(3-2*p),a=partyRoute[leg],b=partyRoute[(leg+1)%5];
  return {x:a[0]+(b[0]-a[0])*ease,y:a[1]+(b[1]-a[1])*ease,moving:u<.75,face:b[0]>=a[0]?1:-1,pose:u<.75?Math.floor(t*3+g.phase)%2:u<.88?2:3};
@@ -225,6 +226,7 @@ function syncPartyButtons(){
 }
 $('#party-dance-button').onclick=()=>{if(partyMoment){partyMoment=null;syncPartyButtons()}else startPartyMoment('dance')};
 $('#party-cheers-button').onclick=()=>startPartyMoment('toast');
+$('#party-music-button').onclick=()=>{partyMoment=null;openJukebox();syncPartyButtons()};
 $('#bridge-play').onclick=()=>openBridgeRun();
 
 const guestToastParts=new Map();
