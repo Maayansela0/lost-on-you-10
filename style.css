@@ -147,3 +147,5 @@ footer{flex-wrap:wrap}.analytics-note a{color:inherit;text-decoration:underline}
  body.game-focus #game{width:min(calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 16px),calc((100vh - 116px) * 1100 / 620));width:min(calc(100dvw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 16px),calc((100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 116px) * 1100 / 620))}
 }
 @media(prefers-reduced-motion:reduce){.hotspot::after,.hotspot::before{animation:none;opacity:.7}}
+
+@media(pointer:coarse),(max-width:900px){#hint{display:none}}
